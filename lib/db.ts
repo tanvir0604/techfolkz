@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client';
-import type { Post, User } from '@prisma/client';
+import { Post } from './interfaces';
 
 const prisma = new PrismaClient()
 
-export async function getPosts(tagId: string|null):Promise<Post[]|[]> {
+export async function getPosts(tagId: string|undefined):Promise<Post[]|[]> {
     let where = {
         status: true,
         postTag: {}
